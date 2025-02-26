@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
-    --font-english: "Archivo", sans-serif;
+    --font-default: "Inter", sans-serif;
     --font-thai: "Noto Sans Thai", sans-serif;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -61,17 +65,37 @@
   }
 
   body {
-    font-family: var(--font-sans);
+    font-family: var(--font-default);
+    cursor: default;
   }
 
   .thai-font {
     font-family: var(--font-thai);
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
