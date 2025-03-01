@@ -1,5 +1,5 @@
 // lib/recipes/index.ts
-// Export all public interfaces, constants, and functions
+// Export ทุกอย่างที่จำเป็นสำหรับใช้งานภายนอก
 
 // Types
 export * from './types';

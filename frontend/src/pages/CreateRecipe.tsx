@@ -46,8 +46,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Slider } from "@/components/ui/slider";
-import Navbar from "@/components/navigation";
-import Footer from "@/components/footer";
+
 
 // Import from refactored files
 import { 

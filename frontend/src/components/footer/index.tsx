@@ -1,5 +1,4 @@
-import FooterSection from './FooterSection';
-import SocialMediaLinks from './SocialMediaLinks';
+import { FooterSection, SocialMediaLinks } from './FooterComponents';
 
 export default function Footer() {
   return (

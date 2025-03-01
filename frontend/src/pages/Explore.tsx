@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { ExploreSidebar } from "@/components/explore/sidebar";
 import PageHeader from "@/components/explore/PageHeader";
 import RecipeGrid from "@/components/explore/RecipeGrid";
-import NoResultsMessage from "@/components/explore/NoResultsMessage";
+import { NoResultsMessage } from "@/components/explore/FeedbackComponents";
 import PaginationControls from "@/components/explore/PaginationControls";
 import {
   FilterOptions,
@@ -11,8 +11,6 @@ import {
   fetchRecipesBySource,
   toggleFavoriteRecipe,
 } from "@/lib/recipes";
-import Navbar from "@/components/navigation";
-import Footer from "@/components/footer";
 
 /**
  * Main component for the Explore page
@@ -130,8 +128,6 @@ export default function ExplorePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      
-
       <div className="flex flex-1">
         <ExploreSidebar
           onCategoryChange={handleCategoryChange}

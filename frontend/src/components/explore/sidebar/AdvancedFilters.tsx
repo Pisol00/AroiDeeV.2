@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
-import CookingTimeSlider from "@/components/explore/sidebar/CookingTimeSlider";
-import CalorieRangeSlider from "@/components/explore/sidebar/CalorieRangeSlider";
-import DifficultySelect from "@/components/explore/sidebar/DifficultySelect";
+import { 
+  CookingTimeSlider, 
+  CalorieRangeSlider, 
+  DifficultySelect 
+} from "@/components/explore/sidebar/SliderComponents";
 import IngredientInput from "@/components/explore/sidebar/IngredientInput";
 import { AdvancedFiltersProps } from "@/components/explore/sidebar/types";
 

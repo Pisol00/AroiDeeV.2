@@ -5,10 +5,9 @@ import { RECIPES_PER_PAGE, TAB_VALUES, SORT_OPTIONS } from "@/lib/recipes/consta
 import { fetchRecipesBySource } from "@/lib/recipes/api";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import PaginationControls from "@/components/explore/PaginationControls";
-import NoResultsMessage from "@/components/explore/NoResultsMessage";
+import { NoResultsMessage, EmptyState } from "@/components/explore/FeedbackComponents";
 import TabsNavigation from "@/components/myRecipe/TabsNavigation";
 import RecipeGrid from "@/components/myRecipe/RecipeGrid";
-import EmptyState from "@/components/myRecipe/EmptyState";
 import CategoryFilter from "@/components/myRecipe/CategoryFilter";
 
 interface RecipeCollectionProps {

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import RecipeCard from "./RecipeCard";
+import RecipeCard from "@/components/main/RecipeCard";
 
 interface Recipe {
     title: string;

@@ -1,6 +1,21 @@
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
-const SocialMediaLinks = () => {
+export const FooterSection = ({ title, links }: { title: string; links: { name: string; href: string }[] }) => (
+  <div>
+    <h3 className="font-semibold mb-2">{title}</h3>
+    <ul className="space-y-1 text-sm">
+      {links.map((link) => (
+        <li key={link.name}>
+          <a href={link.href} className="hover:underline">
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+export const SocialMediaLinks = () => {
   const socialMedia = [
     { icon: Facebook, href: "https://www.facebook.com" },
     { icon: Twitter, href: "https://twitter.com" },
@@ -21,5 +36,3 @@ const SocialMediaLinks = () => {
     </div>
   );
 };
-
-export default SocialMediaLinks;

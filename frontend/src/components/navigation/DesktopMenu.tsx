@@ -11,19 +11,14 @@ const DesktopMenu: React.FC = () => {
       <NavItem
         title="Recipes"
         hasDropdown
-        dropdownItems={RECIPE_MENU_ITEMS.map(({ name, path }) => ({ name, path }))}
+        dropdownItems={RECIPE_MENU_ITEMS}
         isActive={location.pathname.startsWith('/recipes')}
       />
       <NavItem
         title="Meal Planning"
         hasDropdown
-        dropdownItems={MEAL_PLANNING_ITEMS.map(({ name, path }) => ({ name, path }))}
+        dropdownItems={MEAL_PLANNING_ITEMS}
         isActive={location.pathname.startsWith('/meal-planning')}
-      />
-      <NavItem
-        title="Categories"
-        path="/categories"
-        isActive={location.pathname.startsWith('/categories')}
       />
       <NavItem
         title="Community"

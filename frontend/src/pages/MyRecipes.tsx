@@ -8,8 +8,6 @@ import {
   fetchRecipesBySource, 
   toggleFavoriteRecipe 
 } from "@/lib/recipes";
-import Footer from "@/components/footer";
-import Navbar from "@/components/navigation";
 import RecipeCollection from "@/components/myRecipe/RecipeCollection";
 import PageHeader from "@/components/myRecipe/PageHeader";
 

@@ -4,8 +4,15 @@ import { PlusCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from 'react-router-dom';
 
-const PageHeader: React.FC = () => {
+export interface RecipeStatsProps {
+  recipeCount: number;
+  activeTab: string;
+}
 
+/**
+ * Page header component for My Recipes page
+ */
+const PageHeader: React.FC<{ stats?: RecipeStatsProps }> = ({ stats }) => {
   const navigate = useNavigate();
   
   const handleClick = () => {
@@ -18,19 +25,43 @@ const PageHeader: React.FC = () => {
         <h1 className="text-3xl font-bold mb-2">
           👨‍🍳 My Recipe Collection
         </h1>
-        <p className="text-gray-500">
-          Manage your personal recipes and favorites
-        </p>
+        {stats ? (
+          <RecipeStats recipeCount={stats.recipeCount} activeTab={stats.activeTab} />
+        ) : (
+          <p className="text-gray-500">
+            Manage your personal recipes and favorites
+          </p>
+        )}
       </div>
 
       <div className="mt-4 md:mt-0">
         <Button className="bg-orange-500 hover:bg-orange-600 text-white" onClick={handleClick}>
           <PlusCircle className="w-4 h-4 mr-2" /> Create New Recipe
-          
         </Button>
       </div>
     </div>
   );
 };
+
+/**
+ * Recipe stats component
+ */
+export function RecipeStats({ recipeCount, activeTab }: RecipeStatsProps) {
+  const recipeType = activeTab === "myRecipes" ? "personal" : "saved";
+  
+  if (recipeCount === 0) {
+    return (
+      <p className="text-gray-500">
+        No {recipeType} recipes yet
+      </p>
+    );
+  }
+  
+  return (
+    <p className="text-gray-500">
+      You have {recipeCount} {recipeType} recipes
+    </p>
+  );
+}
 
 export default PageHeader;

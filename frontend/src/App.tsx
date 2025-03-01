@@ -10,7 +10,8 @@ import MyRecipes from '@/pages/MyRecipes';
 import CreateRecipe from '@/pages/CreateRecipe';
 import SignupPage from '@/pages/SingupPage';
 import LoginPage from '@/pages/LoginPage';
-import Footer from './components/footer';
+import Footer from '@/components/footer';
+import MealPlanner from '@/pages/CalendarMealPlanner';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/meal-planning/planner" element={<MealPlanner />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>

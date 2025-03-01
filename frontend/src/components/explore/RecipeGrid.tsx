@@ -1,6 +1,6 @@
 import { Recipe } from "@/lib/recipes/types";
 import RecipeCard from "@/components/explore/RecipeCard";
-import { RecipeSkeletons } from "@/components/explore/RecipeCardSkeleton";
+import { RecipeSkeletons } from "@/components/explore/FeedbackComponents";
 import { RECIPES_PER_PAGE } from "@/lib/recipes/constants";
 
 interface RecipeGridProps {

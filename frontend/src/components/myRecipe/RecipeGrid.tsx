@@ -2,7 +2,8 @@
 import React from "react";
 import { Recipe } from "@/lib/recipes/types";
 import RecipeCard from "@/components/explore/RecipeCard";
-import { default as ExploreRecipeGrid } from "@/components/explore/RecipeGrid";
+import { RecipeSkeletons } from "@/components/explore/FeedbackComponents";
+import { RECIPES_PER_PAGE } from "@/lib/recipes/constants";
 
 interface RecipeGridProps {
   recipes: Recipe[];
@@ -19,12 +20,9 @@ const RecipeGrid: React.FC<RecipeGridProps> = ({
 }) => {
   if (loading) {
     return (
-      <ExploreRecipeGrid
-        recipes={[]}
-        loading={true}
-        favorites={[]}
-        onFavoriteToggle={() => {}}
-      />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <RecipeSkeletons count={RECIPES_PER_PAGE} />
+      </div>
     );
   }
 

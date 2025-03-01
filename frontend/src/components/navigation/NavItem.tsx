@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import useOutsideClick from '../hooks/useOutsideClick';
+import useOutsideClick from '../../lib/hooks/useOutsideClick';
 import DropdownMenu from './DropdownMenu';
 import { DropdownItem } from './constants';
 
