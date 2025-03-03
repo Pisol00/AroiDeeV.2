@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import NavItem from './NavItem';
-import { RECIPE_MENU_ITEMS, MEAL_PLANNING_ITEMS } from './constants';
+import NavItem from '@/components/navigation/NavItem';
+import { RECIPE_MENU_ITEMS, MEAL_PLANNING_ITEMS } from '@/components/navigation/constants';
 
 const DesktopMenu: React.FC = () => {
   const location = useLocation();

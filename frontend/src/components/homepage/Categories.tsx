@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import AdvancedLazyImage from "@/components/homepage/AdvancedLazyImage";
 
 // Updated categories with food images
 const categories = [
@@ -38,7 +39,7 @@ const categories = [
 // Motion variants
 const categoryVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: (i) => ({ 
+  visible: (i: number) => ({ 
     opacity: 1, 
     y: 0, 
     transition: { 
@@ -53,7 +54,28 @@ const categoryVariants = {
   },
 };
 
+// Preload the category images since they're a part of the initial view
+// but still use advanced lazy loading as a fallback
+const preloadCategoryImages = () => {
+  // Only preload the first visible categories (depending on screen size)
+  const visibleCount = window.innerWidth < 768 ? 3 : 6;
+  
+  categories.slice(0, visibleCount).forEach(category => {
+    const img = new Image();
+    img.src = category.image;
+  });
+};
+
 const Categories = () => {
+  useEffect(() => {
+    // Preload category images after other critical resources
+    const timer = setTimeout(() => {
+      preloadCategoryImages();
+    }, 1000); // 1 second delay to let critical resources load first
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="container mx-auto py-8 px-4">
       {/* Section Title */}
@@ -78,12 +100,17 @@ const Categories = () => {
             animate="visible"
             whileHover="hover"
           >
-            {/* Circular Image */}
-            <div className="w-24 h-24 rounded-full overflow-hidden mb-2 shadow-md">
-              <img 
+            {/* Circular Image with Advanced Lazy Loading */}
+            <div className="w-24 h-24 rounded-full overflow-hidden mb-2 shadow-md bg-gray-100">
+              <AdvancedLazyImage 
                 src={category.image} 
                 alt={category.alt} 
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                objectFit="cover"
+                // Use smaller rootMargin for categories that might be visible right away
+                rootMargin="50px 0px"
+                // Higher threshold to load when more visible
+                threshold={0.2}
               />
             </div>
             

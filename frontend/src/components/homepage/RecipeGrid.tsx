@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
+import AdvancedLazyImage from "@/components/homepage/AdvancedLazyImage";
 
 // Recipe item type for both featured and latest recipes
 export interface RecipeItem {
@@ -38,10 +39,11 @@ const RecipeGrid: React.FC<RecipeGridProps> = ({
           {recipes.map((recipe) => (
             <div key={recipe.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="relative">
-                <img 
+                <AdvancedLazyImage 
                   src={recipe.image} 
                   alt={recipe.title} 
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48"
+                  objectFit="cover"
                 />
               </div>
               
@@ -62,10 +64,11 @@ const RecipeGrid: React.FC<RecipeGridProps> = ({
                 {recipe.author && (
                   <div className="flex items-center mt-2 mb-2">
                     <div className="w-6 h-6 rounded-full bg-gray-200 overflow-hidden mr-2">
-                      <img 
+                      <AdvancedLazyImage 
                         src="/api/placeholder/30/30" 
                         alt={recipe.author} 
-                        className="w-full h-full object-cover"
+                        className="w-full h-full"
+                        objectFit="cover"
                       />
                     </div>
                     <span className="text-sm text-gray-600">{recipe.author}</span>
@@ -110,10 +113,12 @@ const RecipeGrid: React.FC<RecipeGridProps> = ({
             <div key={recipe.id} className="group cursor-pointer">
               {/* Image Container */}
               <div className="relative overflow-hidden bg-gray-100 mb-2">
-                <img 
+                <AdvancedLazyImage 
                   src={recipe.image} 
                   alt={recipe.title} 
-                  className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full aspect-[4/3]"
+                  objectFit="cover"
+                  aspectRatio="75%" // 4:3 aspect ratio (3/4 = 75%)
                 />
               </div>
               

@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
  * Custom hook to detect clicks outside of a component
  * @param callback Function to run when click is detected outside the component
  */
+
 const useOutsideClick = (callback: () => void) => {
   const ref = useRef<HTMLDivElement>(null);
   

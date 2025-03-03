@@ -3,7 +3,6 @@ import {
   User, 
   Settings, 
   LogOut, 
-  Heart, 
   Calendar, 
   Utensils, 
   ChefHat

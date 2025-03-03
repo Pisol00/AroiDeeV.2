@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { X } from 'lucide-react';
-import NavItem from './NavItem';
-import ProfileMenu from './ProfileMenu';
-import { RECIPE_MENU_ITEMS, MEAL_PLANNING_ITEMS } from './constants';
+import NavItem from '@/components/navigation/NavItem';
+import ProfileMenu from '@/components/navigation/ProfileMenu';
+import { RECIPE_MENU_ITEMS, MEAL_PLANNING_ITEMS } from '@/components/navigation/constants';
 
 interface MobileMenuProps {
   isOpen: boolean;

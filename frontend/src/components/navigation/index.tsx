@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Search } from 'lucide-react';
-import Logo from './Logo';
-import DesktopMenu from './DesktopMenu';
-import SearchBar from './SearchBar';
-import ProfileMenu from './ProfileMenu';
-import MobileMenu from './MobileMenu';
+import Logo from '@/components/navigation/Logo';
+import DesktopMenu from '@/components/navigation/DesktopMenu';
+import SearchBar from '@/components/navigation/SearchBar';
+import ProfileMenu from '@/components/navigation/ProfileMenu';
+import MobileMenu from '@/components/navigation/MobileMenu';
 
 interface NavbarProps {
   isAuthenticated?: boolean;
@@ -16,7 +16,6 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated = false }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
 
-    // Handle scroll event to change navbar appearance
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);

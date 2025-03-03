@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import useOutsideClick from '../../lib/hooks/useOutsideClick';
-import DropdownMenu from './DropdownMenu';
-import { DropdownItem } from './constants';
+import useOutsideClick from '@/lib/hooks/useOutsideClick';
+import DropdownMenu from '@/components/navigation/DropdownMenu';
+import { DropdownItem } from '@/components/navigation/constants';
 
 interface NavItemProps {
   title: string;
@@ -14,6 +14,20 @@ interface NavItemProps {
   children?: React.ReactNode;
   isMobile?: boolean;
 }
+
+// Add keyframe animation CSS class
+const slideInAnimation = `
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+`;
 
 const NavItem: React.FC<NavItemProps> = ({
   title,
@@ -32,6 +46,17 @@ const NavItem: React.FC<NavItemProps> = ({
   useEffect(() => {
     if (isMobile) setIsOpen(false);
   }, [path, isMobile]);
+
+  // Add animation style to document once when component mounts
+  useEffect(() => {
+    const styleEl = document.createElement('style');
+    styleEl.textContent = slideInAnimation;
+    document.head.appendChild(styleEl);
+    
+    return () => {
+      document.head.removeChild(styleEl);
+    };
+  }, []);
 
   const handleMouseEnter = () => {
     if (isMobile) return; // Disable hover behavior on mobile
@@ -119,20 +144,6 @@ const NavItem: React.FC<NavItemProps> = ({
           <DropdownMenu items={dropdownItems} />
         )
       )}
-
-      {/* Add keyframe animation for the link items */}
-      <style jsx>{`
-        @keyframes slideIn {
-          from {
-            opacity: 0;
-            transform: translateX(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-      `}</style>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DropdownItem } from './constants';
+import { DropdownItem } from '@/components/navigation/constants';
 
 interface DropdownMenuProps {
   items: DropdownItem[];
